@@ -13,7 +13,8 @@ const forecast = (geolocation, callback) => {
         } else {
             const currentTemperature = response.body.currently.temperature
             const currentPrecipProbability = response.body.currently.precipProbability
-            callback(undefined, `Its currently ${currentTemperature} degrees out. There is ${currentPrecipProbability}% chance of rain.`)
+            const currentSummary = response.body.currently.summary
+            callback(undefined, `Its currently ${currentTemperature} degrees out. There is ${currentPrecipProbability}% chance of rain. ${currentSummary} for today.`)
         }
     })
 }
