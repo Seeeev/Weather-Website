@@ -1,66 +1,214 @@
 * {
-    box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
 }
 
 body {
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    color: white;
-    letter-spacing: 3px;
-    max-width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  background: url("/img/minimalist-background-hd-12.jpg") no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Abel", sans-serif;
 }
 
-.main-content {
-    flex-grow: 1;
-    /*take all the left over space */
+nav {
+  display: grid;
+  grid-template-columns: 70% 1fr;
+  max-width: 1200px;
+  margin: 10px auto auto auto;
+  color: aliceblue;
 }
 
-header a {
-    text-decoration: none;
-    color: gray;
+.logo-container {
+  display: flex;
 }
 
-footer {
-    color: white;
-    text-align: right;
-    border-top: 1px solid white;
-    padding: 6px 0px;
+.logo-container h1 {
+  margin: auto 0px;
 }
 
-form.search input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
+.search-bar {
+  margin-right: 0%;
 }
 
-form.search button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    /* Prevent double borders */
-    cursor: pointer;
+.search-bar input[type="text"] {
+  padding: 6px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
 }
 
-form.search button:hover {
-    background: #0b7dda;
+.search-bar button {
+  float: left;
+  width: 20%;
+  padding: 6px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  /* Prevent double borders */
+  cursor: pointer;
 }
 
-/* Clear floats */
-form.search::after {
-    content: "";
-    clear: both;
-    display: table;
+.search-bar button:hover {
+  background: #0b7dda;
+}
+
+.main-wrapper {
+  max-width: 1200px;
+  margin: 20px auto 20px auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "monday monday monday monday monday monday"
+    "tuesday wednesday thursday friday saturday sunday";
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.wrapper>div {
+  background-color: rgba(16, 13, 27, 0.781);
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 2px #000000;
+}
+
+.monday {
+  grid-area: monday;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 286px;
+  color: rgb(161, 160, 160);
+}
+
+.location-info {
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.summary {
+  text-align: center;
+}
+
+.wrapper .main-forecast-icon {
+  width: 400px;
+}
+
+.wrapper .sub-forecast-icon {
+  width: 100px;
+}
+
+.sub-forecasts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 286px;
+  color: rgb(161, 160, 160);
+}
+
+.sub-forecasts h3 {
+  background-color: rgb(240, 248, 255);
+  padding: 2px 20px;
+  border-radius: 20px;
+}
+
+.sub-forecasts h2 {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.tuesday {
+  grid-area: tuesday;
+}
+
+.wednesday {
+  grid-area: wednesday;
+}
+
+.thursday {
+  grid-area: thursday;
+}
+
+.friday {
+  grid-area: friday;
+}
+
+.saturday {
+  grid-area: saturday;
+}
+
+.sunday {
+  grid-area: sunday;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: minmax(25px, 600px) minmax(25px, 600px);
+  justify-content: center;
+  height: 300px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.footer>div {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 620px) {
+  nav {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .logo-container {
+    margin: auto;
+  }
+
+  .search-bar {
+    margin: 5px auto auto auto;
+  }
+
+  .wrapper .main-forecast-icon {
+    width: 200px;
+  }
+
+  .wrapper .sub-forecast-icon {
+    width: 100px;
+  }
+
+  .monday {
+    grid-template-columns: 1fr;
+  }
+
+  .location-info {
+    font-size: 12px;
+  }
+
+
+  .wrapper {
+    grid-template-areas:
+      "monday monday monday"
+      "tuesday wednesday thursday"
+      "friday saturday sunday";
+    margin: 10px;
+  }
+
+  .sub-forecasts h2 {
+    font-weight: 100;
+    font-size: 12px;
+  }
+
+  .footer {
+    padding: 5px;
+  }
 }

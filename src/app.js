@@ -27,19 +27,8 @@ app.get("/", (req, res) => {
         name: "Seven Abante"
     });
 });
-app.get("/about", (req, res) => {
-    res.render("about", {
-        title: "About Me",
-        name: "Seven Abante"
-    });
-});
 
-app.get("/help", (req, res) => {
-    res.render("help", {
-        title: "Help",
-        name: "Seven Abante"
-    });
-});
+
 
 app.get("/weather", (req, res) => {
     // Do take note that only response once at a time. Use return
@@ -72,21 +61,6 @@ app.get("/weather", (req, res) => {
     })
 });
 
-app.get('/help/*', (req, res) => {
-    res.render('404', {
-        title: '404',
-        name: 'Seven Abante',
-        errorMessage: 'Help article not found'
-    })
-})
-
-app.get('*', (req, res) => {
-    res.render('404', {
-        title: '404',
-        name: 'Seven Abante',
-        errorMessage: 'Page not found'
-    })
-})
 
 app.listen(port, () => {
     console.log(chalk.green.inverse(`Server is up on port ${port}!`));

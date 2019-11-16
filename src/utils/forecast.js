@@ -11,10 +11,30 @@ const forecast = (geolocation, callback) => {
         } else if (response.body.error) {
             callback(`Error ${response.body.code}. ${response.body.error}`, undefined)
         } else {
-            const currentTemperature = response.body.currently.temperature
-            const currentPrecipProbability = response.body.currently.precipProbability
-            const currentSummary = response.body.currently.summary
-            callback(undefined, `Its currently ${currentTemperature} degrees out. There is ${currentPrecipProbability}% chance of rain. ${currentSummary} for today.`)
+            const forecastData = {
+                // Todays forecast
+                currentTime: response.body.currently.time,
+                currentTemperature: response.body.currently.temperature,
+                currentSummary: response.body.currently.summary,
+                currentIcon: response.body.currently.icon,
+                currentPrecipProbability: response.body.currently.precipProbability,
+            }
+
+            for (let i = 0; i < 6; i++) {
+                // Forecast for the following days
+                const initForecastData = []
+                const timeList = response.body.daily.data[i + 1].time
+                const tempListMin = response.body.daily.data[i + 1].temperatureMin
+                const tempListMax = response.body.daily.data[i + 1].temperatureMax
+                const iconList = response.body.daily.data[i + 1].icon
+                initForecastData.push(timeList, tempListMin, tempListMax, iconList)
+                forecastData['forecast' + i] = initForecastData
+            }
+            console.log(forecastData)
+
+
+            //callback(undefined, `Its currently ${forecastData.currentTemperature} degrees out. There is ${forecastData.currentPrecipProbability}% chance of rain. ${forecastData.currentSummary} for today. `)
+            callback(undefined, forecastData)
         }
     })
 }
