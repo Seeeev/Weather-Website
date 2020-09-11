@@ -13,10 +13,10 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "express": "^4.17.1",
-    "hbs": "^4.0.5",
+    "hbs": "^4.1.1",
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.3"
+    "nodemon": "^2.0.4"
   }
 }
